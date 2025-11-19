@@ -13,12 +13,14 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v4
+      - uses: googleapis/release-please-action@v4
         id: release
         with:
           # 使用 manifest 配置文件支持 monorepo
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+          # 使用 GitHub token
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # 如果创建了 release，则构建和发布
       - uses: actions/checkout@v4
