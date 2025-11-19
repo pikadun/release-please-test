@@ -1,0 +1,20 @@
+{
+  "packages": {
+    "packages/package-a": {
+      "release-type": "node",
+      "package-name": "@release-please-test/package-a",
+      "changelog-path": "CHANGELOG.md",
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": true
+    },
+    "packages/package-b": {
+      "release-type": "node",
+      "package-name": "@release-please-test/package-b",
+      "changelog-path": "CHANGELOG.md",
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": true
+    }
+  },
+  "bootstrap-sha": "main",
+  "plugins": ["node-workspace"]
+}

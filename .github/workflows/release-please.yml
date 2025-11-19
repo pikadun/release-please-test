@@ -1,0 +1,48 @@
+name: Release Please
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v4
+        id: release
+        with:
+          # 使用 manifest 配置文件支持 monorepo
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+      # 如果创建了 release，则构建和发布
+      - uses: actions/checkout@v4
+        if: ${{ steps.release.outputs.releases_created }}
+
+      - uses: actions/setup-node@v4
+        if: ${{ steps.release.outputs.releases_created }}
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        if: ${{ steps.release.outputs.releases_created }}
+        run: npm ci
+
+      - name: Build packages
+        if: ${{ steps.release.outputs.releases_created }}
+        run: npm run build
+
+      # 发布到 npm（如果需要）
+      # - name: Publish to npm
+      #   if: ${{ steps.release.outputs.releases_created }}
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #   run: |
+      #     npm publish --workspace packages/package-a --access public
+      #     npm publish --workspace packages/package-b --access public
