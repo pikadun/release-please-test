@@ -14,4 +14,5 @@ npm install @release-please-test/package-a
 import { greet } from '@release-please-test/package-a';
 
 console.log(greet('World'));
+
 ```
