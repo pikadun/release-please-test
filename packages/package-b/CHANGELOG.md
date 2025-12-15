@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.1](https://github.com/pikadun/release-please-test/compare/package-b-v1.1.0...package-b-v1.1.1) (2025-12-15)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @release-please-test/package-a bumped from ^1.1.0 to ^1.2.0
+
 ## [1.1.0](https://github.com/pikadun/release-please-test/compare/package-b-v1.0.0...package-b-v1.1.0) (2025-11-19)
 
 
