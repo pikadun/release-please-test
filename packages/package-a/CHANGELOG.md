@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/pikadun/release-please-test/compare/package-a-v1.1.0...package-a-v1.2.0) (2025-12-15)
+
+
+### Features
+
+* test ([03ac934](https://github.com/pikadun/release-please-test/commit/03ac934baac5bf8e153f4d5e0cfe5ab8432ddf98))
+
 ## [1.1.0](https://github.com/pikadun/release-please-test/compare/package-a-v1.0.0...package-a-v1.1.0) (2025-11-19)
 
 
